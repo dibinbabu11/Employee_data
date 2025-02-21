@@ -1,0 +1,49 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="main" style="background-color: beige;">
+        <div class="container abc" >EMPLOYEE DATA</div>
+        <div class="container" style="display: flex; justify-content: center;margin: 20px; align-items: center; background-color: beige;">
+        
+        <form method="post">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <th>NAME</th>
+                    <td>{{form.name}}</td>
+                </tr>
+                <tr>
+                    <th>JOB</th>
+                    <td>{{form.job}}</td>
+                </tr>
+                <tr>
+                    <th>Department</th>
+                    <td>{{form.department}}</td>
+                </tr>
+                <tr>
+                    <th>DOB</th>
+                    <td>{{form.date_of_birth}}</td>
+                </tr>
+                <tr>
+                    <th>BASIC PAY</th>
+                    <td>{{form.basic_pay}}</td>
+                </tr>
+
+
+            </table>
+            <!-- {{ form.as_p }} -->
+            <button type="submit" style="text-align: center; align-items: center; width: 220px; height: 40px; border-radius: 20px;background-color: blue;">Save</button>
+        </form>
+        </div>
+        
+        </div>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+.emp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+ .abc{
+    text-align: center;
+ }
+th{
+    background-color: aquamarine;
+}
+td{
+    background-color: rgb(163, 163, 72);
+}
+td:nth-child(even){
+    background-color: cadetblue;
+}

@@ -1,0 +1,55 @@
+{%load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <h2 class=" emp">List of Employees</h2>
+    <a href="{% url 'create' %}" class="emp">Add employee</a>
+<div class="emp">
+    <table border="1">
+        <tr><td colspan="13" align="center" class="employee">Employee List</td></tr>
+        <tr><th>Emp ID</th>
+            <th>Name</th>
+            <th>Job</th>
+            <th>Department</th>
+            <th>Date of Birth</th>
+            <th>Basic Pay</th>
+            <th>HRA</th>
+            <th>DA</th>
+            <th>Gross Pay</th>
+            <th>PF</th>
+            <th>pt</th>
+            <th>Net Pay</th>
+            <th></th>
+        </tr>
+        {% for i in employee %}
+        <tr>
+            <td>{{i.emp_id}}</td>
+            <td>{{i.name}}</td>
+            <td>{{i.job}}</td>
+            <td>{{i.department}}</td>
+            <td>{{i.date_of_birth}}</td>
+            <td>{{i.basic_pay}}</td>
+            <td>{{i.hra}}</td>
+            <td>{{i.da}}</td>
+            <td>{{i.gross_pay}}</td>
+            <td>{{i.pf}}</td>
+            <td>{{i.pt}}</td>
+            <td>{{i.net_pay}}</td>
+            <td>
+               
+                <a href="{% url 'update' i.emp_id %}">Edit</a> |
+                <a href="{% url 'delete' i.pk %}" onclick="return confirm('Are you sure you want to delete this employee?');">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+</body>
+</html>
