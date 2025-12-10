@@ -8,7 +8,13 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>Document</title>
 </head>
-<body>
+<body> {% if departments %}
+    {% for dept in departments %}
+<a href="{% url 'employees_by_dept' dept.id %}">{{ dept.name }}</a>
+          
+        </a>
+    {% endfor %}
+{% endif %}
     <h2 class=" emp">List of Employees</h2>
     <a href="{% url 'create' %}" class="emp">Add employee</a>
 <div class="emp">

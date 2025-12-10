@@ -7,8 +7,8 @@ from .forms import EmployeeForm
 
 def employee_list(request):
     employee=Employee.objects.all()
+    # department = get_object_or_404(Department)  create context processors
     return render(request,"employee.html",{"employee":employee})
-
 
 def create(request):
     if request.method == "POST":
@@ -16,6 +16,7 @@ def create(request):
         if form.is_valid():
             form.save()
             return redirect("/")
+    
     else:
         form = EmployeeForm()
     return render(request, "create.html", {"form": form})
@@ -33,3 +34,9 @@ def delete(request, pk):
     employee = get_object_or_404(Employee, pk=pk)
     employee.delete()
     return redirect('employee_list')
+
+
+def employees_by_department(request, dept_id):
+    department = get_object_or_404(Department, pk=dept_id)
+    employees = Employee.objects.filter(department=department)
+    return render(request, "department.html", {"department": department,"employees": employees})

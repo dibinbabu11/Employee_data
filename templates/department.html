@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employees in {{ department.name }}</title>
+</head>
+<body>
+
+<h1>Department: {{ department.name }}</h1>
+
+<h3>Employees</h3>
+
+{% if employees %}
+    <ul>
+        {% for emp in employees %}
+            <li>{{ emp.name }} - {{ emp.job }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No employees in this department.</p>
+{% endif %}
+
+<br>
+<a href="{% url 'employee_list' %}">Back to Employee List</a>
+
+</body>
+</html>
