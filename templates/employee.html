@@ -37,7 +37,7 @@
         {% for i in employee %}
         <tr>
             <td>{{i.emp_id}}</td>
-            <td>{{i.name}}</td>
+            <td>{{i.name|upper }}</td> <!-- Django Template Filters -->
             <td>{{i.job}}</td>
             <td>{{i.department}}</td>
             <td>{{i.date_of_birth}}</td>

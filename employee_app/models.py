@@ -42,10 +42,10 @@ class Employee(models.Model):
     @property
     def pf(self):
         return self.basic_pay * 0.12
-
     @property
     def net_pay(self):
         return self.gross_pay - self.pt - self.pf
 
     def __str__(self):
         return self.name 
+    

@@ -4,7 +4,6 @@ from .forms import EmployeeForm
 
 # Create your views here.
 
-
 def employee_list(request):
     employee=Employee.objects.all()
     # department = get_object_or_404(Department)  create context processors
@@ -37,6 +36,8 @@ def delete(request, pk):
 
 
 def employees_by_department(request, dept_id):
+
     department = get_object_or_404(Department, pk=dept_id)
     employees = Employee.objects.filter(department=department)
+
     return render(request, "department.html", {"department": department,"employees": employees})
